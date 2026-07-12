@@ -19,3 +19,5 @@ loguru
 numba>=0.59.0
 docling
 mistralai
+langchain
+langchain-text-splitters

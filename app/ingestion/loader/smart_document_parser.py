@@ -132,6 +132,10 @@ class SmartDocumentParser:
                 )
                 markdown = pattern.sub(f"[Image: {summary}]", markdown)
                 logger.debug("Page {} — image {} summarized", page_number, image["id"])
+
+        # Clean up any remaining unsummarized image placeholders (skipped/failed)
+        markdown = re.sub(r"!\[[^\]]*\]\([^)]*\)", "", markdown)
+
         return markdown
 
     def _summarize_image(self, image_base64: str) -> str:
