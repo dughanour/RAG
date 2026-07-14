@@ -5,7 +5,7 @@ from app.ingestion.chunking.chunker import Chunker
 
 def main():
     # Target test file
-    file_path = os.path.join("data", "EFESO_E2E_Inflation_Management.pdf")
+    file_path = os.path.join("data", "DEFR PEFT.pdf")
     
     if not os.path.exists(file_path):
         logger.error(f"Test file not found at {file_path}")
