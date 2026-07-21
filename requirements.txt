@@ -21,3 +21,5 @@ docling
 mistralai
 langchain
 langchain-text-splitters
+langchain-groq
+flashrank
