@@ -103,16 +103,70 @@ def run_agent():
             logger.error("Agent execution failed: {}", e)
 
 
+def run_reranking_test():
+    """Retrieves 6 candidates from Qdrant, reranks with FlashRank (6 -> 3), and displays Selected vs Excluded chunks."""
+    from app.services.retrieval.reranking_service import rerank_documents
+
+    query = input("\nEnter your search query for Reranking test: ").strip()
+    if not query:
+        logger.warning("Empty query. Aborting search.")
+        return
+
+    try:
+        embedder = EmbeddingService()
+        vector_db = QdrantService(embedding_dim=embedder.get_embedding_dim())
+
+        logger.info("Fetching top 6 candidates from Qdrant vector DB...")
+        query_vector = embedder.embed_query(query)
+        candidates = vector_db.search(query_vector, top_k=6)
+
+        if not candidates:
+            logger.warning("No candidates retrieved from Qdrant.")
+            return
+
+        doc_texts = [hit.payload.get("text", "") for hit in candidates]
+
+        logger.info("Applying FlashRank Cross-Encoder reranking (6 -> 3)...")
+        selected_texts = rerank_documents(query, doc_texts, top_n=3)
+
+        print("\n" + "="*80)
+        print(f"FLASHRANK RERANKING ANALYSIS FOR: '{query}'")
+        print("="*80)
+
+        print("\n✅ SELECTED BY FLASHRANK (TOP 3 MOST RELEVANT):")
+        print("="*80)
+        for i, text in enumerate(selected_texts):
+            orig_pos = doc_texts.index(text) + 1 if text in doc_texts else "?"
+            print(f"\n[Rank #{i+1} | Original Qdrant Position: Candidate #{orig_pos}]")
+            print(f"{text[:400]}...")
+            print("-" * 60)
+
+        print("\n❌ EXCLUDED BY FLASHRANK (REJECTED CHUNKS):")
+        print("="*80)
+        excluded_texts = [t for t in doc_texts if t not in selected_texts]
+        for i, text in enumerate(excluded_texts):
+            orig_pos = doc_texts.index(text) + 1
+            print(f"\n[Rejected #{i+1} | Original Qdrant Position: Candidate #{orig_pos}]")
+            print(f"{text[:400]}...")
+            print("-" * 60)
+
+        print("\n" + "="*80)
+
+    except Exception as e:
+        logger.error(f"Reranking test failed: {e}")
+
+
 def main():
     while True:
         print("\n" + "="*30 + " MENU " + "="*30)
         print("1 - Search (Retrieve top 3 relevant chunks directly)")
         print("2 - Ingest (Run ingestion pipeline on target PDF)")
         print("3 - Agent Chat (Run Multi-Turn Agentic RAG Graph)")
-        print("4 - Exit")
+        print("4 - FlashRank Reranking Test (Retrieve 6 -> Rerank 3 -> Show Selected vs Excluded)")
+        print("5 - Exit")
         print("="*66)
 
-        choice = input("Enter choice (1, 2, 3, or 4): ").strip()
+        choice = input("Enter choice (1, 2, 3, 4, or 5): ").strip()
 
         if choice == "1":
             run_retrieval()
@@ -121,12 +175,15 @@ def main():
         elif choice == "3":
             run_agent()
         elif choice == "4":
+            run_reranking_test()
+        elif choice == "5":
             logger.info("Exiting...")
             break
         else:
-            print("Invalid choice. Please enter 1, 2, 3, or 4.")
+            print("Invalid choice. Please enter 1, 2, 3, 4, or 5.")
 
 
 if __name__ == "__main__":
     main()
+
 
