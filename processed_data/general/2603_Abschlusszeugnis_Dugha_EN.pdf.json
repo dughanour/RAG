@@ -1,0 +1,34 @@
+{
+  "filename": "2603_Abschlusszeugnis_Dugha_EN.pdf",
+  "source_type": "general",
+  "chunks": [
+    {
+      "page_content": "**EFESO**\nMANAGEMENT CONSULTANTS",
+      "metadata": {
+        "source": "data\\2603_Abschlusszeugnis_Dugha_EN.pdf",
+        "page_number": 1,
+        "total_pages": 2,
+        "images": []
+      }
+    },
+    {
+      "page_content": "## Internship Certificate  \nMr. Nour Aldeen Dugha, born on 27.01.1998, completed a six-month internship as an AI Software Engineer at EFESO Management Consultants from 01 October 2025 until 31 March 2026. During this period, Mr. Dugha actively participated in our digital innovation projects and contributed significantly to the development of our internal AI-powered document assistant system.  \nWith around 1,000 employees across 35 locations, EFESO Management Consultants is the leading international operations consultancy, supporting global corporations, medium-sized companies, and private equity investors in the areas of product development, performance improvement, supply chain management, sustainability, and Industry 4.0. Together with our clients, our consultants rethink products end-to-end—from the initial idea to industrialization and implement holistic, cost-effective smart factory concepts, adaptive supply chains, and resilient organizational models.  \nThe tasks assigned to him essentially included:  \n- • Implementing EFESOBOT independently, a Multimodal Retrieval-Augmented Generation (RAG) system for intelligent document querying, and managing all aspects of its development process.\n- • Designing and deploying a multi-agent framework using LangGraph to coordinate specialized agents for retrieval, web search, and response generation.\n- • Developing a well-structured technical approach to ensure efficient query routing, accurate document selection, and traceable source citations.\n- • Building robust document ingestion pipelines to process various file formats and support seamless data onboarding.\n- • Integrating specialized libraries, such as IBM Docling for advanced PDF parsing, python-pptx and LibreOffice for PowerPoint processing, and Pandas for structured data extraction. The PDF pipeline included automatic image classification and hybrid chunking strategies to preserve original document structures.\n- • Realizing the system's multimodal capabilities to successfully process both text and visual content.\n- • Implementing vision-language models and dual embedding strategies to enable unified semantic search across multiple modalities.\n- • Facilitating efficient similarity searches and metadata filtering through the integration of a FAISS vector database.  \nwww.efeso.com/de | Seite 1",
+      "metadata": {
+        "source": "data\\2603_Abschlusszeugnis_Dugha_EN.pdf",
+        "page_number": 1,
+        "total_pages": 2,
+        "images": [],
+        "header2": "Internship Certificate"
+      }
+    },
+    {
+      "page_content": "- Implementing the backend infrastructure using FastAPI to provide both REST API endpoints and WebSocket support for real-time streaming responses.\n- Ensuring a clear separation of concerns between services, agents, and API layers to support multi-provider LLM integration and seamless frontend connectivity.  \nMr. Dugha consistently demonstrated solid technical skills and professional maturity that met the expectations for an intern role and demonstrated strong technical understanding in several areas. He approached assigned tasks with a high degree of independence and reliability, delivering solutions that reflected a good and sometimes advanced understanding of technical requirements. He showed a strong willingness to learn and adapt to new challenges.  \nMr. Dugha's conduct and communication were consistently professional. He proactively identified potential improvements, shared constructive ideas, and worked well within the team.  \nMr. Dugha has shown a solid grasp of technical concepts, reliable work ethic, and a positive attitude toward teamwork. We thank him for his valuable contributions and wish him continued success in his professional development.  \nWe wish Mr. Dugha all the best for his future career journey and thank him for his commitment during his internship at EFESO Management Consultants.  \nMünchen, 31st March 2026  \nROI-EFESO Management Consulting AG  \nSebastian Diers\nVorstand & Managing Director DACH  \nwww.efeso.com/de | Seite 2",
+      "metadata": {
+        "source": "data\\2603_Abschlusszeugnis_Dugha_EN.pdf",
+        "page_number": 2,
+        "total_pages": 2,
+        "images": []
+      }
+    }
+  ]
+}

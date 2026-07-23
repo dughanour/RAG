@@ -24,3 +24,4 @@ langchain-text-splitters
 langchain-groq
 flashrank
 python-multipart
+streamlit

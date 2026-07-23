@@ -28,6 +28,7 @@ def chat(request: ChatRequest) -> ChatResponse:
             status=result.get("status", ""),
             plan=result.get("plan", []),
             retrieved_chunks=len(result.get("documents", [])),
+            retrieved_documents=result.get("documents", [])
         )
     except Exception as e:
         logger.exception("Chat endpoint failed: {}", e)

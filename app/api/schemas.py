@@ -11,7 +11,9 @@ class ChatResponse(BaseModel):
     planner_decision: str
     status: str
     plan: list[str]
-    retrieved_chunks: int 
+    retrieved_chunks: int
+    retrieved_documents: list[str]
+
 
 class NewSessionResponse(BaseModel):
     session_id: str
